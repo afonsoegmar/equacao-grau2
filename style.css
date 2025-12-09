@@ -1,0 +1,90 @@
+ <!-- Estilos customizados para o modo claro/escuro, scrollbar E VÍDEO DE FUNDO -->
+    <style>
+        /* TEMA CLARO */
+        :root {
+            --bg: #f8fafc; /* slate-50 */
+            --text: #0f172a; /* slate-900 */
+            --card: #ffffff;
+        }
+        /* TEMA ESCURO (Otimizado para vídeo de estrelas/fundo preto) */
+        .dark {
+            --bg: #0a0e1a; /* Azul muito escuro, quase preto (fundo) */
+            --text: #e2e8f0; /* slate-200 (texto) */
+            --card: #161e2f; /* Dark card background (levemente mais claro que o fundo) */
+        }
+        body {
+            transition: background-color 0.3s, color 0.3s;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            /* Garante que o body não tenha margem */
+            margin: 0;
+        }
+        
+        /* Aplica uma leve transparência aos cartões no modo escuro */
+        .bg-card {
+            background-color: var(--card); /* Cor base */
+            transition: background-color 0.3s, opacity 0.3s, backdrop-filter 0.3s;
+        }
+        /* Mantém a opacidade de 95% para os cartões de CONTEÚDO (que não são o header) */
+        .dark .bg-card {
+            background-color: var(--card); 
+            opacity: 0.95; 
+        }
+        
+        /* ESTILO: HEADER FIXO */
+        #main-header {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50; 
+            /* CRUCIAL: Adiciona position: relative para que o vídeo de fundo interno funcione */
+            position: relative; 
+        }
+        
+        /* COMPENSAÇÃO: Adiciona padding ao conteúdo principal para que o header fixo não o cubra */
+        #app {
+            padding-top: 140px; /* Ajuste este valor se o header mudar de altura (aprox. altura do header + margem) */
+            min-height: 100vh;
+        }
+        
+        /* Resto dos estilos */
+        .scroll-container::-webkit-scrollbar { width: 8px; }
+        .scroll-container::-webkit-scrollbar-thumb { background-color: #94a3b8; border-radius: 4px; }
+        .dark .scroll-container::-webkit-scrollbar-thumb { background-color: #475569; }
+        .custom-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1); }
+
+        /* ESTILOS PARA O VÍDEO DE FUNDO DA PÁGINA (Full Screen) */
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -10; /* O mais fundo de todos */
+            object-fit: cover;
+            opacity: 0.25; /* Opacidade suave (Modo Claro - um pouco mais visível) */
+            transition: opacity 0.3s;
+        }
+        /* Aumenta a opacidade do vídeo da página no modo escuro */
+        .dark #background-video {
+            opacity: 0.40; 
+        }
+        
+        /* ESTILOS PARA O VÍDEO DE FUNDO DO HEADER */
+        #header-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 10; /* Fica acima do vídeo da página, mas abaixo do conteúdo do header (z-20) */
+            opacity: 0.7; /* Suaviza a cor para não competir com o texto */
+            transition: opacity 0.3s;
+        }
+        
+    </style>

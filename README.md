@@ -1,59 +1,57 @@
-➗ Solucionador Interativo de Equação de Segundo Grau
+🧮 Solucionador de Equação de Segundo Grau
 
-🌟 Descrição
+Este projeto é uma ferramenta interativa e educacional projetada para ajudar estudantes e entusiastas a compreender e resolver equações quadráticas ($ax^2 + bx + c = 0$).
 
-Esta aplicação web é uma ferramenta educacional e interativa projetada para resolver equações quadráticas (do segundo grau) no formato padrão: $ax^2 + bx + c = 0$.
+1. A Fórmula de Bhaskara
 
-A ferramenta oferece uma análise completa, indo além do cálculo simples, e é ideal para estudantes e professores.
+A chave para resolver qualquer equação de segundo grau é a Fórmula de Bhaskara, que é usada para encontrar as raízes (os valores de $x$ que tornam a equação verdadeira).
 
-Funcionalidades Principais
+$$x = \frac{-b \pm \sqrt{\Delta}}{2a}$$
 
-Cálculos Detalhados: Calcula o Discriminante (Delta, $\Delta$) e as Raízes (x' e x'') usando a Fórmula de Bhaskara.
+O que é o Delta ($\Delta$)?
 
-Visualização Gráfica: Plota a parábola ($y = ax^2 + bx + c$) em um gráfico interativo, destacando as raízes reais e o vértice.
+O Delta é o discriminante da equação e é calculado antes das raízes. Ele determina a natureza das raízes:
 
-Feedback Educacional: Fornece uma explicação imediata sobre a natureza das raízes (reais e distintas, reais e iguais, ou complexas) com base no valor de $\Delta$.
+$$\Delta = b^2 - 4ac$$
 
-Histórico Local: Salva e permite a recuperação rápida das últimas equações resolvidas.
+2. Análise do Delta
 
-Entrada de Voz (Experimental): Permite a inserção dos coeficientes 'a', 'b', e 'c' por comando de voz.
+O valor de $\Delta$ tem um impacto direto no formato da parábola e na quantidade de soluções reais:
 
-🛠️ Tecnologias e Setup
+Valor do $\Delta$
 
-Este projeto é um Single-File Application (SFA) e utiliza apenas tecnologias front-end carregadas via CDN, o que o torna extremamente fácil de hospedar.
+Interpretação das Raízes
 
-Tecnologia
+Representação no Gráfico
 
-Finalidade
+$\Delta > 0$
 
-HTML5/JS
+Duas raízes reais e distintas.
 
-Lógica da equação, validação e manipulação do DOM.
+A parábola cruza o eixo $X$ em dois pontos.
 
-CSS Estilização moderna e responsiva.
+$\Delta = 0$
 
-Chart.js
+Uma raiz real (ou duas raízes reais e iguais).
 
-Geração do gráfico da parábola.
+A parábola toca o eixo $X$ em um único ponto (o vértice).
 
-Web Speech API
+$\Delta < 0$
 
-Reconhecimento de voz.
+Nenhuma raiz real (duas raízes complexas).
 
-Como Executar
+A parábola não toca o eixo $X$, ficando totalmente acima ou abaixo dele.
 
-Simplesmente abra o arquivo index.html em qualquer navegador moderno (Chrome, Firefox, Edge, etc.).
+3. Componentes Educacionais da Aplicação
 
-🚀 Como Publicar no GitHub Pages
+Validação e Erros: O sistema impede que o coeficiente $a$ seja zero e avisa o usuário caso insira valores não numéricos, garantindo a integridade do cálculo.
 
-Para tornar o seu projeto acessível publicamente pela internet:
+Feedback Educacional: Após o cálculo, uma mensagem detalhada explica o significado do $\Delta$ encontrado (positivo, zero ou negativo) e sua relação com o gráfico.
 
-Crie um repositório Público no GitHub.
+Gráfico Interativo: Um gráfico da parábola é gerado em tempo real, marcando claramente as raízes encontradas e o vértice.
 
-Envie todos os seus arquivos (incluindo index.html e README.md).
+Histórico Local: Todas as equações resolvidas são salvas no seu navegador (via localStorage), permitindo que você revise problemas passados e recarregue-os com um clique.
 
-Vá para Settings > Pages no seu repositório.
+Entrada por Voz (Experimental): Permite inserir os coeficientes ditando-os ("A igual a 5, B igual a menos 2"), tornando a entrada de dados mais acessível e rápida.
 
-Selecione a branch main como sua fonte e clique em Salvar.
-
-Sua aplicação estará disponível em uma URL como: https://afonsoegmar.github.io/equacao-grau2/.
+Modo Escuro/Claro: Oferece controle de tema para melhor conforto visual.
